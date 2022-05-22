@@ -1,0 +1,1307 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Butterworth Filter Properties</title>
+  <metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m16903</md:content-id>
+  <md:title>Butterworth Filter Properties</md:title>
+  <md:abstract/>
+  <md:uuid>e03404ee-c451-48e7-af94-636b8eb5305d</md:uuid>
+</metadata>
+
+<content>
+    <para id="id2255546">This section develops the properties of the Butterworth
+filter which has as its basic concept a Taylor's series
+approximation to the desired frequency response. The measure of
+the approximation is the number of terms in the Taylor's series
+expansion of the actual frequency response that can be made equal
+to those of the desired frequency response. The optimal or best
+solution will have the maximum number of terms equal. The
+Taylor's series is a power series expansion of a function in the
+form of</para>
+    <equation id="uid1">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mi>ω</m:mi>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+          <m:msup>
+            <m:mi>ω</m:mi>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>3</m:mn>
+          </m:msub>
+          <m:msup>
+            <m:mi>ω</m:mi>
+            <m:mn>3</m:mn>
+          </m:msup>
+          <m:mo>+</m:mo>
+          <m:mo>⋯</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2255644">where</para>
+    <equation id="uid2">
+      <m:math mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>0</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>,</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mrow>
+              <m:mi>d</m:mi>
+              <m:mi>F</m:mi>
+              <m:mo>(</m:mo>
+              <m:mi>ω</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mrow>
+              <m:mi>d</m:mi>
+              <m:mi>ω</m:mi>
+            </m:mrow>
+          </m:mfrac>
+          <m:msub>
+            <m:mrow>
+              <m:msub>
+                <m:mo>|</m:mo>
+                <m:mrow>
+                  <m:mi>ω</m:mi>
+                  <m:mo>=</m:mo>
+                  <m:mn>0</m:mn>
+                </m:mrow>
+              </m:msub>
+              <m:mo>,</m:mo>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:msub>
+                <m:mi>K</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+              <m:mo>=</m:mo>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mn>1</m:mn>
+                <m:mo>/</m:mo>
+                <m:mn>2</m:mn>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mfrac>
+                <m:mrow>
+                  <m:msup>
+                    <m:mi>d</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                  <m:mi>F</m:mi>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mi>ω</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:mrow>
+                <m:mrow>
+                  <m:mi>d</m:mi>
+                  <m:msup>
+                    <m:mi>ω</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:mrow>
+              </m:mfrac>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mrow>
+              <m:mi>ω</m:mi>
+              <m:mo>=</m:mo>
+              <m:mn>0</m:mn>
+            </m:mrow>
+          </m:msub>
+          <m:mo>,</m:mo>
+          <m:mi>e</m:mi>
+          <m:mi>t</m:mi>
+          <m:mi>c</m:mi>
+          <m:mo>.</m:mo>
+          <m:mo>,</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2256066">with the coefficients of the Taylor's
+series being proportional to the various order derivatives of
+<m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> evaluated at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math>. A basic characteristic of
+this approach is that the approximation is all performed at one
+point, i.e., at one frequency. The ability of this approach to give
+good results over a range of frequencies depends on the analytic
+properties of the response.</para>
+    <para id="id2256106">The general form for the squared-magnitude response is an even
+function of <m:math><m:mi>ω</m:mi></m:math> and, therefore, is a function of <m:math><m:msup><m:mi>ω</m:mi><m:mn>2</m:mn></m:msup></m:math>
+expressed as</para>
+    <equation id="uid3">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>F</m:mi>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>j</m:mi>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mrow>
+              <m:msub>
+                <m:mi>d</m:mi>
+                <m:mn>0</m:mn>
+              </m:msub>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>d</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+              <m:msup>
+                <m:mi>ω</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>d</m:mi>
+                <m:mn>4</m:mn>
+              </m:msub>
+              <m:msup>
+                <m:mi>ω</m:mi>
+                <m:mn>4</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo>
+              <m:mo>.</m:mo>
+              <m:mo>.</m:mo>
+              <m:mo>.</m:mo>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>d</m:mi>
+                <m:mrow>
+                  <m:mn>2</m:mn>
+                  <m:mi>M</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:msup>
+                <m:mi>ω</m:mi>
+                <m:mrow>
+                  <m:mn>2</m:mn>
+                  <m:mi>M</m:mi>
+                </m:mrow>
+              </m:msup>
+            </m:mrow>
+            <m:mrow>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mn>0</m:mn>
+              </m:msub>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+              <m:msup>
+                <m:mi>ω</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mn>4</m:mn>
+              </m:msub>
+              <m:msup>
+                <m:mi>ω</m:mi>
+                <m:mn>4</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo>
+              <m:mo>.</m:mo>
+              <m:mo>.</m:mo>
+              <m:mo>.</m:mo>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mrow>
+                  <m:mn>2</m:mn>
+                  <m:mi>N</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:msup>
+                <m:mi>ω</m:mi>
+                <m:mrow>
+                  <m:mn>2</m:mn>
+                  <m:mi>N</m:mi>
+                </m:mrow>
+              </m:msup>
+            </m:mrow>
+          </m:mfrac>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2256311">In order to obtain a solution that is a lowpass filter, the Taylor's
+series expansion is performed around <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math>, requiring that
+<m:math><m:mrow><m:mi>F</m:mi><m:mi>F</m:mi><m:mo>(</m:mo><m:mn>0</m:mn><m:mo>)</m:mo><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math> and that <m:math><m:mrow><m:mi>F</m:mi><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>j</m:mi><m:mi>∞</m:mi><m:mo>)</m:mo><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math>, (i.e., <m:math><m:mrow><m:msub><m:mi>d</m:mi><m:mn>0</m:mn></m:msub><m:mo>=</m:mo><m:msub><m:mi>c</m:mi><m:mn>0</m:mn></m:msub></m:mrow></m:math>, <m:math><m:mrow><m:mi>N</m:mi><m:mo>&gt;</m:mo><m:mi>M</m:mi></m:mrow></m:math>,
+and <m:math><m:mrow><m:msub><m:mi>c</m:mi><m:mrow><m:mn>2</m:mn><m:mi>N</m:mi></m:mrow></m:msub><m:mo>≠</m:mo><m:mn>0</m:mn></m:mrow></m:math>). This is written as</para>
+    <equation id="uid4">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>F</m:mi>
+          <m:mi>F</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>j</m:mi>
+          <m:mi>ω</m:mi>
+          <m:mo>)</m:mo>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>+</m:mo>
+          <m:mi>E</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>ω</m:mi>
+          <m:mo>)</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2256477">Combining <link target-id="uid3"/> and <link target-id="uid4"/>
+gives</para>
+    <equation id="uid5">
+      <m:math mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>d</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>d</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+          <m:msup>
+            <m:mi>ω</m:mi>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>+</m:mo>
+          <m:mo>⋯</m:mo>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>d</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+          <m:mi>M</m:mi>
+          <m:mi>w</m:mi>
+          <m:mo>=</m:mo>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+          <m:mi>w</m:mi>
+          <m:mo>+</m:mo>
+          <m:mo>⋯</m:mo>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>N</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:msup>
+            <m:mi>ω</m:mi>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>N</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mo>+</m:mo>
+          <m:mi>E</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mrow>
+            <m:mo>[</m:mo>
+            <m:msub>
+              <m:mi>c</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>+</m:mo>
+            <m:msub>
+              <m:mi>c</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+            <m:mi>ω</m:mi>
+            <m:mo>+</m:mo>
+            <m:mo>⋯</m:mo>
+            <m:mo>]</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2256634">The best Taylor's approximation requires that <m:math><m:mrow><m:mi>F</m:mi><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>j</m:mi><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> and the
+desired ideal response have as many terms as possible equal in their
+Taylor's series expansion at a given frequency. For a lowpass
+filter, the expansion is around <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math>, and this requires
+<m:math><m:mrow><m:mi>E</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> have as few low-order <m:math><m:mi>ω</m:mi></m:math> terms as possible. This
+is achieved by setting</para>
+    <equation id="uid6">
+      <m:math mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:msub>
+            <m:mi>d</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>,</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:msub>
+            <m:mi>d</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+          <m:mo>,</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mo>⋯</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>M</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:msub>
+            <m:mi>d</m:mi>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>M</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>,</m:mo>
+          <m:mo>⋯</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>M</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>2</m:mn>
+            </m:mrow>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+          <m:mo>,</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>N</m:mi>
+              <m:mo>-</m:mo>
+              <m:mn>2</m:mn>
+            </m:mrow>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+          <m:mo>,</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:msub>
+            <m:mi>c</m:mi>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>N</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>≠</m:mo>
+          <m:mn>0</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2256886">Because the ideal response in the passband is a constant, the
+Taylor's series approximation is often called “maximally flat".</para>
+    <para id="id2256893"><link target-id="uid6"/> states that the numerator of the transfer
+function may be chosen arbitrarily. Then by setting the denominator
+coefficients of FF(s) equal to the numerator coefficients plus one
+higher-order term, an optimal Taylor's series approximation is
+achieved <link target-id="bid0"/>.</para>
+    <para id="id2256910">Since the numerator is arbitrary, its coefficients can be
+chosen for a Taylor's approximation to zero at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mi>∞</m:mi></m:mrow></m:math>.
+This is accomplished by setting <m:math><m:mrow><m:msub><m:mi>d</m:mi><m:mn>0</m:mn></m:msub><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math> and all other d's equal
+zero. The resulting magnitude-squared function is<link target-id="bid0"/></para>
+    <equation id="uid7">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>F</m:mi>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>j</m:mi>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mrow>
+                  <m:mn>2</m:mn>
+                  <m:mi>N</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:msup>
+                <m:mi>ω</m:mi>
+                <m:mrow>
+                  <m:mn>2</m:mn>
+                  <m:mi>N</m:mi>
+                </m:mrow>
+              </m:msup>
+            </m:mrow>
+          </m:mfrac>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2257013">The value of the constant <m:math><m:msub><m:mi>c</m:mi><m:mrow><m:mn>2</m:mn><m:mi>N</m:mi></m:mrow></m:msub></m:math> determines at which value of
+<m:math><m:mi>ω</m:mi></m:math> the transition of passband to stopband occurs. For this
+development, it is normalized to <m:math><m:mrow><m:msub><m:mi>c</m:mi><m:mrow><m:mn>2</m:mn><m:mi>N</m:mi></m:mrow></m:msub><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math>, which causes the
+transition to occur at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math>. This gives the simple form for
+what is called the Butterworth filter</para>
+    <equation id="uid8">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>F</m:mi>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>j</m:mi>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mo>+</m:mo>
+              <m:msup>
+                <m:mi>ω</m:mi>
+                <m:mrow>
+                  <m:mn>2</m:mn>
+                  <m:mi>N</m:mi>
+                </m:mrow>
+              </m:msup>
+            </m:mrow>
+          </m:mfrac>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2257130">This approximation is sometimes called “maximally flat" at both <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> and <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mi>∞</m:mi></m:mrow></m:math>, since it is simultaneously a Taylor's series
+approximation to unity at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> and to zero at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mi>∞</m:mi></m:mrow></m:math>. A
+graph of the resulting frequency response function is shown in
+<link target-id="uid9"/> for several <m:math><m:mi>N</m:mi></m:math>.</para>
+    <figure id="uid9" orient="horizontal"><media id="id39318002" alt="Figure one is titled Order-N Analog Butterworth Filter. The horizontal axis is labeled Normalized Frequency, and ranges in value from 0 to 3 in increments of 0.5. The vertical axis is labeled Magnitude Response and ranges in value from 0 to 1 in increments of 0.2. There are three curves on this graph, and they all follow a similar shape. The curves begin at (0, 1), move horizontally for a portion, then begin decreasing at an increasing rate, then begin decreasing at a decreasing rate, and end somewhere in the bottom-right corner of the graph. The first curve, labeled N=1, is the most shallow, spending the least amount of time in horizontal segments and gradually decreasing, terminating at (3, 0.3). The second curve, labeled N=3, behaves in a more exaggerated fashion, with a longer initial horizontal portion, a steeper negative slope, and ending lower at (3, 0.1). The third curve, labeled N=11, has the strongest movements, with the longest initial horizontal segment, a nearly vertical decreasing segment, and a completed horizontal asymptote beginning at (1.7, 0) and continuing to the bottom-right corner of the graph."><image src="../../media/figIIR3.png" mime-type="image/png" width="417"/><image for="pdf" src="../../media/figIIR3.eps" mime-type="application/postscript"/></media>
+      
+    <caption>Frequency Responses of the Butterworth Lowpass Filter
+Approximation</caption></figure>
+    <para id="id2257223">The characteristics of the normalized Butterworth filter
+frequency response are:</para>
+    <list id="id2257228" list-type="bulleted">
+      <item id="uid10">Very close to the ideal near <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> and
+<m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mi>∞</m:mi></m:mrow></m:math>,
+</item>
+      <item id="uid11">Very smooth at all frequencies with a
+monotonic decrease from <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> to <m:math><m:mi>∞</m:mi></m:math>, and
+</item>
+      <item id="uid12">Largest
+difference between the ideal and actual responses near the
+transition at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math> where <m:math><m:mrow><m:msup><m:mrow><m:mo>|</m:mo><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>j</m:mi><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mo>|</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:math>.
+</item>
+    </list>
+    <para id="id2257368">Although not part of the approximation addressed, the phase curve
+is also very smooth.</para>
+    <para id="id2257373">An important feature of the Butterworth filter is the closed-
+form formula for the solution, <m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>s</m:mi><m:mo>)</m:mo></m:mrow></m:math>. The
+expression for <m:math><m:mrow><m:mi>F</m:mi><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>s</m:mi><m:mo>)</m:mo></m:mrow></m:math> may be determined as</para>
+    <equation id="uid13">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>s</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mo>-</m:mo>
+            <m:mi>s</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mo>+</m:mo>
+              <m:msup>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mo>-</m:mo>
+                  <m:msup>
+                    <m:mi>s</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mi>N</m:mi>
+              </m:msup>
+            </m:mrow>
+          </m:mfrac>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2257480">This function has <m:math><m:mrow><m:mn>2</m:mn><m:mi>N</m:mi></m:mrow></m:math> poles evenly spaced around a unit radius circle and
+<m:math><m:mrow><m:mn>2</m:mn><m:mi>N</m:mi></m:mrow></m:math> zeros at infinity. The determination of <m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>s</m:mi><m:mo>)</m:mo></m:mrow></m:math> is very simple. In
+order to have a stable filter, <m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>s</m:mi><m:mo>)</m:mo></m:mrow></m:math> is selected to have the <m:math><m:mi>N</m:mi></m:math>
+left-hand plane poles and <m:math><m:mi>N</m:mi></m:math> zeros at infinity; <m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mo>-</m:mo><m:mi>s</m:mi><m:mo>)</m:mo></m:mrow></m:math> will necessarily
+have the right-hand plane poles and the other N zeros at infinity. The
+location of these poles on the complex <m:math><m:mi>s</m:mi></m:math> plane for <m:math><m:mrow><m:mi>N</m:mi><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>2</m:mn><m:mo>,</m:mo><m:mn>3</m:mn></m:mrow></m:math>, and
+4 is shown in <link target-id="uid14"/>.</para>
+    <figure id="uid14" orient="horizontal"><media id="id39395776" alt="Figure two consists of four graphs. Each has a horizontal axis labeled, real part of s, with values ranging from -2 to 2 in increments of 1. Each has a vertical axis labeled, imaginary part of s, with values ranging from -1.5 to 1.5 in increments of 0.5. Each graph has a circle of radius one centered at the origin. The first graph is titled First Order BW Filter Poles, and there is a mark on the leftmost potion of the circle, at (-1, 0). The second graph is titled Second Order BW Filter Poles, and there are two marks on the left side of the circle, one in the middle of the portion of the circle in the second quadrant, and one in the middle of the portion of the circle in the third quadrant. The third graph is titled Third order BW Filter Poles, and there are three evenly-spaced marks on the outside of the left half of the circle. The fourth graph is titled Fourth Order BW Filter Poles, and there are four evenly-spaced marks on the left half of the circle."><image src="../../media/figIIR4.png" mime-type="image/png" width="417"/><image for="pdf" src="../../media/figIIR4.eps" mime-type="application/postscript"/></media>
+      
+    <caption>Pole Locations for Analog Butterworth Filter Transfer Function on
+the Complex s Plane</caption></figure>
+    <para id="id2257631">Because of the geometry of the pole positions, simple
+formulas are easy to derive for the pole locations. If the real
+and imaginary parts of the pole location are denoted as</para>
+    <equation id="uid15">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>s</m:mi>
+          <m:mo>=</m:mo>
+          <m:mi>u</m:mi>
+          <m:mo>+</m:mo>
+          <m:mi>j</m:mi>
+          <m:mi>w</m:mi>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2257661">the locations of the <m:math><m:mi>N</m:mi></m:math> poles are given by</para>
+    <equation id="uid16">
+      <m:math mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>u</m:mi>
+            <m:mi>k</m:mi>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mo>-</m:mo>
+          <m:mo form="prefix">cos</m:mo>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>k</m:mi>
+            <m:mi>π</m:mi>
+            <m:mo>/</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>N</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <equation id="uid17">
+      <m:math mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>ω</m:mi>
+            <m:mi>k</m:mi>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mo form="prefix">sin</m:mo>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>k</m:mi>
+            <m:mi>π</m:mi>
+            <m:mo>/</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>N</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2257761">for <m:math><m:mi>N</m:mi></m:math> values of <m:math><m:mi>k</m:mi></m:math> where</para>
+    <equation id="uid18">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>k</m:mi>
+          <m:mo>=</m:mo>
+          <m:mo>±</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>,</m:mo>
+          <m:mo>±</m:mo>
+          <m:mn>3</m:mn>
+          <m:mo>,</m:mo>
+          <m:mo>±</m:mo>
+          <m:mn>5</m:mn>
+          <m:mo>,</m:mo>
+          <m:mo>.</m:mo>
+          <m:mo>.</m:mo>
+          <m:mo>.</m:mo>
+          <m:mo>,</m:mo>
+          <m:mo>±</m:mo>
+          <m:mo>(</m:mo>
+          <m:mi>N</m:mi>
+          <m:mo>-</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>)</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mtext>for</m:mtext>
+          <m:mspace width="4.pt"/>
+          <m:mtext>N</m:mtext>
+          <m:mspace width="4.pt"/>
+          <m:mtext>even</m:mtext>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <equation id="uid19">
+      <m:math mode="display">
+        <m:mrow>
+          <m:mi>k</m:mi>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+          <m:mo>,</m:mo>
+          <m:mo>±</m:mo>
+          <m:mn>2</m:mn>
+          <m:mo>,</m:mo>
+          <m:mo>±</m:mo>
+          <m:mn>4</m:mn>
+          <m:mo>,</m:mo>
+          <m:mo>.</m:mo>
+          <m:mo>.</m:mo>
+          <m:mo>.</m:mo>
+          <m:mo>,</m:mo>
+          <m:mo>±</m:mo>
+          <m:mo>(</m:mo>
+          <m:mi>N</m:mi>
+          <m:mo>-</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>)</m:mo>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mspace width="4pt"/>
+          <m:mtext>for</m:mtext>
+          <m:mspace width="4.pt"/>
+          <m:mtext>N</m:mtext>
+          <m:mspace width="4.pt"/>
+          <m:mtext>odd</m:mtext>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2257942">Because the coefficients of the numerator and denominator
+polynomials of <m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>s</m:mi><m:mo>)</m:mo></m:mrow></m:math> are real, the roots occur in complex
+conjugate pairs. The conjugate pairs in <link target-id="uid16"/>,<link target-id="uid17"/> can be
+combined to be the roots of second-order polynomials so that for <m:math><m:mi>N</m:mi></m:math>
+even, <m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>s</m:mi><m:mo>)</m:mo></m:mrow></m:math> has the partially factored form of</para>
+    <equation id="uid20"><m:math mode="display">
+        <m:mrow>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>s</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+<m:mrow>
+            <m:mo>∏</m:mo>
+</m:mrow>        
+    <m:mi>k</m:mi>
+          </m:munder>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:msup>
+                <m:mi>s</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo>
+              <m:mn>2</m:mn>
+              <m:mo form="prefix">cos</m:mo>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>k</m:mi>
+                <m:mi>π</m:mi>
+                <m:mo>/</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>N</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mi>s</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>1</m:mn>
+            </m:mrow>
+          </m:mfrac>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2258076">for <m:math><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>3</m:mn><m:mo>,</m:mo><m:mn>5</m:mn><m:mo>,</m:mo><m:mo>.</m:mo><m:mo>.</m:mo><m:mo>.</m:mo><m:mo>,</m:mo><m:mi>N</m:mi><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow></m:math>. For <m:math><m:mi>N</m:mi></m:math> odd,
+<m:math><m:mrow><m:mi>F</m:mi><m:mo>(</m:mo><m:mi>s</m:mi><m:mo>)</m:mo></m:mrow></m:math> has a single real pole and, therefore, the form</para>
+    <equation id="uid21"><m:math mode="display">
+        <m:mrow>
+          <m:mi>F</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>s</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:mi>s</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>1</m:mn>
+            </m:mrow>
+          </m:mfrac>
+          <m:munder>
+<m:mrow>
+            <m:mo>∏</m:mo>
+</m:mrow>        
+    <m:mi>k</m:mi>
+          </m:munder>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:msup>
+                <m:mi>s</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+              <m:mo>+</m:mo>
+              <m:mn>2</m:mn>
+              <m:mo form="prefix">cos</m:mo>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>k</m:mi>
+                <m:mi>π</m:mi>
+                <m:mo>/</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>N</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mi>s</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>1</m:mn>
+            </m:mrow>
+          </m:mfrac>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2258236">for <m:math><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>2</m:mn><m:mo>,</m:mo><m:mn>4</m:mn><m:mo>,</m:mo><m:mn>6</m:mn><m:mo>,</m:mo><m:mo>⋯</m:mo><m:mo>,</m:mo><m:mi>N</m:mi><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow></m:math></para>
+    <para id="id2258276">This is a convenient form for the cascade and parallel realizations
+discussed in elsewhere.</para>
+    <para id="id2258281">A single formula for the pole locations for both even and odd
+<m:math><m:mi>N</m:mi></m:math> is</para>
+    <equation id="uid22">
+      <m:math mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>u</m:mi>
+            <m:mi>k</m:mi>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mo>-</m:mo>
+          <m:mo form="prefix">sin</m:mo>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mi>π</m:mi>
+            <m:mo>/</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>N</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <equation id="uid23">
+      <m:math mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>ω</m:mi>
+            <m:mi>k</m:mi>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mo form="prefix">cos</m:mo>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mi>π</m:mi>
+            <m:mo>/</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>N</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id2258405">for <m:math><m:mi>N</m:mi></m:math> values of <m:math><m:mi>k</m:mi></m:math> where <m:math><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>2</m:mn><m:mo>,</m:mo><m:mo>.</m:mo><m:mo>.</m:mo><m:mo>.</m:mo><m:mo>,</m:mo><m:mi>N</m:mi><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow></m:math></para>
+    <para id="id2258466">One of the important features of the Butterworth filter design
+formulas is that the pole locations are found by independent
+calculations which do not depend on each other or on factoring a
+polynomial. A FORTRAN program which calculates these values is
+given in the appendix as Program 8. Mathworks has a powerful command
+for designing analog and digital Butterworth filters.</para>
+    <para id="id2258475">The classical form of the Butterworth filter given in <link target-id="uid8"/>
+is discussed in many books <link target-id="bid1"/>, <link target-id="bid2"/>, <link target-id="bid3"/>, <link target-id="bid4"/>, <link target-id="bid0"/>. The less
+well-known form given in <link target-id="uid6"/> also has many useful
+applications <link target-id="bid0"/>. If the frequency location of unwanted
+signals is known, the zeros of the transfer function given by the
+numerator can be set to best reject them. It is then possible to
+choose the pole locations so as to have a passband as flat as the
+classical Butterworth filter by using <link target-id="uid6"/>. Unfortunately,
+there are no formulas for the pole locations; therefore, the
+denominator polynomial must be factored.</para>
+    
+    <para id="id2258545"><title>Summary</title>This section has derived design procedures and formulas for
+a class of filter transfer functions that approximate the ideal
+desired frequency response by a Taylor's series. If the
+approximation is made at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> and <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mi>∞</m:mi></m:mrow></m:math>, the
+resulting filter is called a Butterworth filter and the response is
+called maximally-flat at zero and infinity. This filter has a very
+smooth frequency response and, although not explicitly designed for,
+has a smooth phase response. Simple formulas for the pole locations
+were derived and are implemented in the design program in the
+appendix of this book.</para>
+    <section id="uid24">
+      <title>Butterworth Filter Design Procedures</title>
+      <para id="id2258597">This section considers the process of going from given
+specifications to use of the approximation results derived in the
+previous section. The Butterworth filter is the simplest of the four
+classical filters in that all the approximation effort is placed at
+two frequencies: <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> and <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mi>∞</m:mi></m:mrow></m:math>. The transition
+from passband to stopband occurs at a normalized frequency of
+<m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math>. Assuming that this transition frequency or bandedge
+can later be scaled to any desired frequency, the only parameter to
+be chosen in the design process is the order <m:math><m:mi>N</m:mi></m:math>.</para>
+      <para id="id2258663">The filter specifications that are consistent with what is
+optimized in the Butterworth filter are the degree of “flatness" at
+<m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> (DC) and at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mi>∞</m:mi></m:mrow></m:math>. The higher the order,
+the flatter the frequency response at these two points. Because of
+the analytic nature of rational functions, the flatter the response
+is at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> and <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mi>∞</m:mi></m:mrow></m:math>, the closer it stays to the
+desired response throughout the whole passband and stopband. An
+indirect consequence of the filter order is the slope of the
+response at the transition between pass and stopband. The slope of
+the squared-magnitude frequency response at <m:math><m:mrow><m:mi>ω</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math> is</para>
+      <equation id="uid25">
+        <m:math mode="display">
+          <m:mrow>
+            <m:mi>s</m:mi>
+            <m:mo>=</m:mo>
+            <m:mi>F</m:mi>
+            <m:msup>
+              <m:mi>F</m:mi>
+              <m:mo>'</m:mo>
+            </m:msup>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>j</m:mi>
+              <m:mn>1</m:mn>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mo>-</m:mo>
+            <m:mi>N</m:mi>
+            <m:mo>/</m:mo>
+            <m:mn>2</m:mn>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id2258797">The effects of the increased flatness and increased transition
+slope of the frequency response as N increases are illustrated in
+<link document="m16909" target-id="uid15">Figure 1 from Design of Infinite Impulse Response (IIR) Filters by Frequency Transformations</link>.</para>
+      <para id="id2258807">In some cases specifications state the response must stay
+above or below a certain value over a given frequency band. Although
+this type of specification is more compatible with a Chebyshev error
+optimization, it is possible to design a Butterworth filter to meet
+the requirements. If the magnitude of the frequency response of the
+filter over the passband of <m:math><m:mrow><m:mn>0</m:mn><m:mo>&lt;</m:mo><m:mi>ω</m:mi><m:mo>&lt;</m:mo><m:msub><m:mi>ω</m:mi><m:mi>P</m:mi></m:msub></m:mrow></m:math> must remain
+between unity and <m:math><m:mi>G</m:mi></m:math>, where <m:math><m:mrow><m:msub><m:mi>ω</m:mi><m:mi>p</m:mi></m:msub><m:mo>&lt;</m:mo><m:mn>1</m:mn></m:mrow></m:math> and <m:math><m:mrow><m:mi>G</m:mi><m:mo>&lt;</m:mo><m:mn>1</m:mn></m:mrow></m:math>, the
+required order is found by the smallest integer <m:math><m:mi>N</m:mi></m:math> satisfying</para>
+      <equation id="uid26">
+        <m:math mode="display">
+          <m:mrow>
+            <m:mi>N</m:mi>
+            <m:mo>≥</m:mo>
+            <m:mfrac>
+              <m:mrow>
+                <m:mo form="prefix">log</m:mo>
+                <m:mo>(</m:mo>
+                <m:msup>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mn>1</m:mn>
+                    <m:mo>/</m:mo>
+                    <m:mi>G</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mn>2</m:mn>
+                </m:msup>
+                <m:mo>-</m:mo>
+                <m:mn>1</m:mn>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mrow>
+                <m:mn>1</m:mn>
+                <m:mo form="prefix">log</m:mo>
+                <m:mo>(</m:mo>
+                <m:msub>
+                  <m:mi>ω</m:mi>
+                  <m:mi>p</m:mi>
+                </m:msub>
+                <m:mo>)</m:mo>
+              </m:mrow>
+            </m:mfrac>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id2258966">This is illustrated in <link target-id="uid27"/> where <m:math><m:mrow><m:mo>|</m:mo><m:mi>F</m:mi><m:mo>|</m:mo></m:mrow></m:math> must remain above 0.9
+for <m:math><m:mi>ω</m:mi></m:math> up to 0.9, i.e., <m:math><m:mi>G</m:mi></m:math> = 0.9 and <m:math><m:msub><m:mi>ω</m:mi><m:mi>p</m:mi></m:msub></m:math> = 0.9. These
+requirements require an order of at least <m:math><m:mrow><m:mi>N</m:mi><m:mo>=</m:mo><m:mn>7</m:mn></m:mrow></m:math>.</para>
+      <figure id="uid27" orient="horizontal"><media id="id47977029" alt="Figure three is a graph titled Analog Butterworth Filter Frequency Response. The horizontal axis is labeled Normalized Frequency ω, and ranges in value from 0 to 3 in increments of 0.5. The vertical axis is labeled Magnitude Response, and ranges in value from 0 to 1 in increments of 0.2. There is one curve on the graph, and it starts at (0, 1), moving horizontally for 0.5 units, and then proceeds to decrease at a increasing rate. At approximately (1.1, 0.5), the curve then begins decreasing at a decreasing rate, until it terminates still with a slightly negative slope at (3, 0.1). at a horizontal value of approximately 0.8, an arrow points at the horizontal axis, labeled ω_P. At this horizontal point, there is a vertical line up to the point where it intersects with the aforementioned curve."><image src="../../media/figIIR5.png" mime-type="image/png" width="419"/><image for="pdf" src="../../media/figIIR5.eps" mime-type="application/postscript"/></media>
+        
+      <caption>Passband Specifications for Designing a Butterworth
+Filter</caption></figure>
+      <para id="id2259053">If stopband performance is stated in the form of requiring
+that the response stay below a certain value for frequency above a
+certain value, i.e., <m:math><m:mrow><m:mo>|</m:mo><m:mi>F</m:mi><m:mo>|</m:mo><m:mo>&lt;</m:mo><m:mi>G</m:mi></m:mrow></m:math> for <m:math><m:mrow><m:mi>ω</m:mi><m:mo>&gt;</m:mo><m:msub><m:mi>ω</m:mi><m:mi>s</m:mi></m:msub></m:mrow></m:math>, the order is
+determined by the same formula <link target-id="uid26"/> with <m:math><m:msub><m:mi>ω</m:mi><m:mi>p</m:mi></m:msub></m:math> replaced
+by <m:math><m:msub><m:mi>ω</m:mi><m:mi>s</m:mi></m:msub></m:math>.</para>
+      <para id="id2259132">Note <m:math><m:mrow><m:mrow><m:mo>|</m:mo><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>j</m:mi><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mo>|</m:mo></m:mrow><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mo>(</m:mo></m:msqrt><m:mrow><m:mn>2</m:mn><m:mo>)</m:mo></m:mrow></m:mrow></m:math> which is called the “half power" frequency
+because <m:math><m:mrow><m:msup><m:mrow><m:mo>|</m:mo><m:mi>F</m:mi><m:mrow><m:mo>(</m:mo><m:mi>j</m:mi><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mo>|</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:math>. This frequency is normalized to one for the
+theory but can be scaled to any value for applications.</para>
+<example id="fs-id3090274"><title>Design of a Butterworth Lowpass IIR Filter</title><para id="id2259230">To illustrate the calculations, a lowpass Butterworth filter
+is designed. It is desired that the frequency response stay above
+0.8 for frequencies up to 0.9. The formula <link target-id="uid26"/> for
+determining the order gives a value of 2.73; therefore, the order is
+three. The analytic function corresponding to the squared-magnitude
+frequency response in <link target-id="uid13"/> is</para>
+      <equation id="uid28">
+        <m:math mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mrow>
+                <m:mo>|</m:mo>
+                <m:mi>F</m:mi>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>j</m:mi>
+                  <m:mi>ω</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>|</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>=</m:mo>
+            <m:mfrac>
+              <m:mn>1</m:mn>
+              <m:mrow>
+                <m:mn>1</m:mn>
+                <m:mo>+</m:mo>
+                <m:msup>
+                  <m:mi>ω</m:mi>
+                  <m:mn>6</m:mn>
+                </m:msup>
+              </m:mrow>
+            </m:mfrac>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id2259304">The transfer function corresponding to the left-half-plane poles of
+F'(s) are calculated from <link target-id="uid16"/> to give</para>
+      <equation id="uid29">
+        <m:math mode="display">
+          <m:mrow>
+            <m:mi>F</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>s</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mfrac>
+              <m:mn>1</m:mn>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>s</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>1</m:mn>
+                <m:mo>)</m:mo>
+                <m:mo>(</m:mo>
+                <m:mi>s</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>0</m:mn>
+                <m:mo>.</m:mo>
+                <m:mn>5</m:mn>
+                <m:mo>+</m:mo>
+                <m:mi>j</m:mi>
+                <m:mn>0</m:mn>
+                <m:mo>.</m:mo>
+                <m:mn>866</m:mn>
+                <m:mo>)</m:mo>
+                <m:mo>(</m:mo>
+                <m:mi>s</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>0</m:mn>
+                <m:mo>.</m:mo>
+                <m:mn>5</m:mn>
+                <m:mo>-</m:mo>
+                <m:mi>j</m:mi>
+                <m:mn>0</m:mn>
+                <m:mo>.</m:mo>
+                <m:mn>866</m:mn>
+                <m:mo>)</m:mo>
+              </m:mrow>
+            </m:mfrac>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <equation id="uid30">
+        <m:math mode="display">
+          <m:mrow>
+            <m:mi>F</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>s</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mfrac>
+              <m:mn>1</m:mn>
+              <m:mrow>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>s</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mn>1</m:mn>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:msup>
+                    <m:mi>s</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                  <m:mo>+</m:mo>
+                  <m:mi>s</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mn>1</m:mn>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+              </m:mrow>
+            </m:mfrac>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <equation id="uid31">
+        <m:math mode="display">
+          <m:mrow>
+            <m:mi>F</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>s</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mfrac>
+              <m:mn>1</m:mn>
+              <m:mrow>
+                <m:msup>
+                  <m:mi>s</m:mi>
+                  <m:mn>3</m:mn>
+                </m:msup>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:msup>
+                  <m:mi>s</m:mi>
+                  <m:mn>2</m:mn>
+                </m:msup>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>s</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>1</m:mn>
+              </m:mrow>
+            </m:mfrac>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id2259527">The frequency response is obtained by setting <m:math><m:mrow><m:mi>s</m:mi><m:mo>=</m:mo><m:mi>j</m:mi><m:mi>ω</m:mi></m:mrow></m:math> which
+has a plot illustrated in <link target-id="uid9"/> for <m:math><m:mrow><m:mi>N</m:mi><m:mo>=</m:mo><m:mn>3</m:mn></m:mrow></m:math>. The pole locations
+are the same as shown in <link target-id="uid14"/>c.</para>
+      </example>
+    </section>
+  </content>
+  <bib:file>
+    <bib:entry id="bid2">
+      <bib:book>
+<!--required fields-->
+        <bib:author>Oppenheim, A. V. and Schafer, R. W.</bib:author>
+        <bib:title>Discrete-Time Signal Processing</bib:title>
+        <bib:publisher>Prentice-Hall</bib:publisher>
+        <bib:year>1999</bib:year>
+<!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Englewood Cliffs, NJ</bib:address>
+        <bib:edition>Second</bib:edition>
+        <bib:month/>
+        <bib:note>Earlier editions in 1975 and 1989</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid0">
+      <bib:book>
+<!--required fields-->
+        <bib:author>Parks, T. W. and Burrus, C. S.</bib:author>
+        <bib:title>Digital Filter Design</bib:title>
+        <bib:publisher>John Wiley &amp; Sons</bib:publisher>
+        <bib:year>1987</bib:year>
+<!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid1">
+      <bib:book>
+<!--required fields-->
+        <bib:author>Rabiner, L. R. and Gold, B.</bib:author>
+        <bib:title>Theory and Application of Digital Signal Processing</bib:title>
+        <bib:publisher>Prentice-Hall</bib:publisher>
+        <bib:year>1975</bib:year>
+<!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Englewood Cliffs, NJ</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid3">
+      <bib:book>
+<!--required fields-->
+        <bib:author>Taylor, F. J.</bib:author>
+        <bib:title>Digital Filter Design Handbook</bib:title>
+        <bib:publisher>Marcel Dekker, Inc.</bib:publisher>
+        <bib:year>1983</bib:year>
+<!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid4">
+      <bib:book>
+<!--required fields-->
+        <bib:author>Valkenburg, M.E. Van</bib:author>
+        <bib:title>Analog Filter Design</bib:title>
+        <bib:publisher>Holt, Rinehart, and Winston</bib:publisher>
+        <bib:year>1982</bib:year>
+<!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+  </bib:file>
+</document>

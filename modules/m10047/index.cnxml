@@ -1,0 +1,154 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>IIR Filtering Using the DSP56002</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>9b1991e7-f250-48d6-9833-59103214579e</md:uuid>
+</metadata>
+
+
+  <content>
+    <section id="sec1">
+      <title>IIR filter implementation</title>
+      <para id="p1">
+	The program <code>iir.asm</code> implements a real-time
+	<term>IIR</term> <term>lowpass filter</term>; the ADC
+	procedure is the same as used for the FIR filter in <link document="m10046">FIR Filtering</link> .  The example IIR
+	filter is found in <cite><cite-title>El-Sharkawy Appendix F, Section
+	6</cite-title></cite>.  Assemble, link, load and execute this routine;
+	observe the frequency response passband edge frequency using a
+	sinewave input to the EVM.
+      </para>
+    </section>
+    <section id="sec2">
+      <title>Canonical biquad section</title>
+      <para id="p2">
+	Consider the seven instructions in <code>iir.asm</code> (<link target-id="fig1">shown below</link>) that implement cascaded
+	second order sections of the IIR filter.  For a single section
+	<code>nsec=1</code> use the flow diagram in <link target-id="fig2"/> and a sequence of diagrams as in <link target-id="fig3"/> to explain the execution of a single biquad
+	section.  Express the value of the accumulator at each step in
+	terms of
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">x</m:ci>
+	    <m:ci>n</m:ci>
+	  </m:apply>
+	</m:math>,
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">w</m:ci>
+	    <m:ci>n</m:ci>
+	  </m:apply>
+	</m:math>, and 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">y</m:ci>
+	    <m:ci>n</m:ci>
+	  </m:apply>
+	</m:math>.
+      </para>
+
+      <code display="block" id="fig1">
+	
+	mpy    y0,y1,a     x:(r0)+,x0    y:(r4)+,y0
+	do     #nsec,_ends
+	mac    x0,y0,a     x:(r0)-,x1    y:(r4)+,y0
+	macr   x1,y0,a     x1,x:(r0)+    y:(r4)+,y0
+	mac    x0,y0,a     a,x:(r0)      y:(r4)+,y0
+	mac    x1,y0,a     x:(r0)+,x0    y:(r4)+,y0
+	mac    x0,y0,a     x:(r0)+,x0    y:(r4)+,y0
+	_ends
+	
+      </code>
+
+      <!--\begin{center}
+      \begin{tabular}{lllll}
+      &     {\tt mpy} ~~~&{\tt y0,y1,a}& {\tt x:(r0)+,x0}&    {\tt y:(r4)+,y0}\\
+      &     {\tt do}&     \#{\tt nsec,}\_{\tt ends}\\
+      &     {\tt mac}&    {\tt x0,y0,a}& {\tt x:(r0)-,x1}&    {\tt y:(r4)+,y0}\\
+      &     {\tt macr}~~~&{\tt x1,y0,a}& {\tt x1,x:(r0)+}&    {\tt y:(r4)+,y0}\\
+      &     {\tt mac}&    {\tt x0,y0,a}& {\tt a,x:(r0)}&    {\tt y:(r4)+,y0}\\
+      &     {\tt mac}&    {\tt x1,y0,a}& {\tt x:(r0)+,x0}&    {\tt y:(r4)+,y0}\\
+      &     {\tt mac}&    {\tt x0,y0,a} ~~~& {\tt x:(r0)+,x0} ~~~&    {\tt y:(r4)+,y0}\\
+      \_{\tt ends}\\
+      \end{tabular}
+      \end{center}
+      -->
+
+      <figure id="fig2">
+	<media id="idp1201824" alt=""><image src="iir_fig1.png" mime-type="image/png"/></media>
+	<caption>Direct form II canonical IIR second order section.</caption>
+      </figure>
+    </section>
+    <section id="sec3">
+      <title>Filter design</title>
+      <para id="p3">
+	A speech signal has been recorded in the presence of a loud,
+	annoying, high frequency hum.  Measurements have indicated
+	that the noise energy is isolated to frequencies in the range
+	of 2850Hz to 2950Hz.  Use Matlab to design an IIR <term>notch
+	filter</term> to remove these unwanted components.  Design the
+	filter for a <term>sampling rate</term> of 16kHz; set the DSP
+	sampling rate to 16kHz in the file <code>ada_init.asm</code>.
+	Implement this filter on the 56002 and verify its operation
+	using the oscilloscope and speakers.  Compare the
+	computational cost of your IIR filter on the 56002 to the FIR
+	design from the <link document="m10046">FIR Filtering
+	Lab</link>.
+      </para>
+      <section id="new0">
+	<title>Matlab Suggestions</title>
+	<para id="p4">
+	  Use either <term>Butterworth</term> or <term>Elliptic</term>
+	  designs with a <code>'stop'</code> bandreject option.  Try a
+	  60dB <term>stopband</term> attenuation as a starting point.
+	  Be careful with signs on denominator coefficients.  Your
+	  report should comment on your design choices.  Plot both
+	  magnitude and phase responses.  The reject band can be
+	  plotted using these commands:
+	</para>
+	<code display="block" id="idp2428288">
+	  
+	  [h,w]=freqz(b,a,1024);
+	  hold off;
+	  plot(w*8000/pi,20*log10(abs(h)));
+	  axis([2400 3400 -80 0]);
+	  grid;
+	  hold on;
+	  plot([2850 2850],[0 -80],'r');
+	  plot([2950 2950],[0 -80],'r'); 
+	  xlabel('frequency, Hz');
+	  ylabel('magnitude response, dB'); 
+	  
+	</code>
+      </section>
+    </section>
+    <section id="sec4">
+      <title>Saving cycles</title> 
+      <para id="p5">
+	Modify your program to avoid the reset of <code>r0</code> and
+	<code>r1</code> inside the filtering loop in
+	<code>iir.asm</code>.  See <cite><cite-title>Page 165 of
+	El-Sharkawy</cite-title></cite> for comments on <term>modulo
+	addressing</term> and the <code>dsm</code> assembler
+	directive.
+      </para>
+    </section>
+    <section id="sec5">
+      <title>Interrupts versus polling</title>
+      <para id="p6">
+	Rewrite your program to implement filtering using
+	<term>interrupts</term>, in contrast to the
+	<term>polling</term> used in <code>iir.asm</code>.  The
+	routines within <code>txrx_isr.asm</code> can be modified for
+	this purpose.  The main loop of your program should count the
+	number of free cycles remaining per sampling period.  Use the
+	A accumulator to count the number of cycles not used in
+	implementing the IIR filter.  Store and reset the accumulator
+	value as part of your interrupt routine.
+      </para>
+      <figure id="fig3">
+	<media id="idp2269408" alt=""><image src="iir_fig2.png" mime-type="image/png"/></media>
+	<caption>Data structures</caption>
+      </figure>
+    </section>
+  </content>
+</document>

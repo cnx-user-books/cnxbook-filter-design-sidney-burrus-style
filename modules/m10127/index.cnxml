@@ -1,0 +1,951 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+
+  <title>Butterworth Filters</title>
+
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>223013b1-dfa8-4024-a9e7-e6bb759cf1be</md:uuid>
+</metadata>
+
+  <content>
+
+    <para id="para1">
+      The Butterworth filter is a filter that can be constructed out
+      of passive R, L, C circuits.  The magnitude of the transfer
+      function for this filter is
+      <equation id="eqn1">
+	<title>Magnitude of Butterworth Filter Transfer Function</title>
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:abs/>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:imaginaryi/>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:root/>
+		<m:apply>
+		  <m:plus/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:power/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:ci>ω</m:ci>
+		      <m:ci><m:msub>
+			  <m:mi>ω</m:mi>
+			  <m:mi>c</m:mi>
+			</m:msub></m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      where <m:math><m:ci>n</m:ci></m:math> is the <term>order</term>
+      of the filter and
+      <m:math><m:msub><m:mi>ω</m:mi><m:mi>c</m:mi></m:msub></m:math>
+      is the <term>cutoff frequency</term>.  The cutoff frequency is
+      the frequency where the magnitude experiences a 3 dB dropoff
+      (where
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:abs/>
+	    <m:apply>
+	      <m:ci type="fn">H</m:ci>
+	      <m:apply>
+		<m:times/>
+		<m:imaginaryi/>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	  <m:apply>
+	    <m:divide/>
+	    <m:cn>1</m:cn>
+	    <m:apply>
+	      <m:root/>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:apply>
+      </m:math>).
+    </para>
+
+
+    <figure id="fig1">
+      <media id="idp6731088" alt=""><image src="../../media/bwFreq2a.jpg" mime-type="image/jpeg"/></media>
+     <caption>
+	Three different orders of lowpass Butterworth
+	analog filters: 
+        <m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>n</m:ci>
+	    <m:set>
+	      <m:cn>1</m:cn>
+	      <m:cn>4</m:cn>
+	      <m:cn>10</m:cn>
+	    </m:set>
+	  </m:apply>
+	</m:math>.  As <m:math><m:ci>n</m:ci></m:math> increases, the
+        filter more closely approximates an ideal brickwall lowpass
+        response.
+      </caption>
+    </figure>
+
+
+    <para id="para2">
+      The important aspects of <link target-id="fig1" strength="3"/> are
+      that it does not ripple in the passband or stopband as other
+      filters tend to, and that the larger
+      <m:math><m:ci>n</m:ci></m:math>, the sharper the cutoff (the
+      smaller the <link document="m10126" strength="2">transition
+      band</link>).
+    </para>
+
+    <para id="para3">
+      This transfer function is often seen in its normalized form of
+      <equation id="eqn2">
+	<title>
+	  Magnitude of Normalized Transfer Function for Lowpass
+	  Butterworth Filter
+	</title>
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:abs/>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:imaginaryi/>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:root/>
+		<m:apply>
+		  <m:plus/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>ω</m:ci>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+
+    <para id="para4">
+      Butterworth filters give transfer functions 
+      (<m:math>
+	<m:apply>
+	  <m:ci type="fn">H</m:ci>
+	  <m:apply>
+	    <m:times/>
+	    <m:imaginaryi/>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math>
+      and
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">H</m:ci>
+	  <m:ci>s</m:ci>
+	</m:apply>
+      </m:math>) that are <term>rational functions</term>.  They also
+      have only <link document="m10112" strength="3">poles</link>,
+      resulting in a transfer function of the form 
+      <equation id="eqn3">
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+	    <m:cn>1</m:cn>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>s</m:ci>
+		<m:ci><m:msub><m:mi>s</m:mi><m:mn>1</m:mn></m:msub></m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>s</m:ci>
+		<m:ci><m:msub><m:mi>s</m:mi><m:mn>2</m:mn></m:msub></m:ci>
+	      </m:apply>
+	      <m:ci>⋯</m:ci>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>s</m:ci>
+		<m:ci><m:msub><m:mi>s</m:mi><m:mi>n</m:mi></m:msub></m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      and a pole-zero plot of
+    </para>
+
+    <figure id="fig2">
+      <media id="idp7427744" alt=""><image src="../../media/bwSPlane2a.jpg" mime-type="image/jpeg"/></media>
+      <caption>
+	Poles of a 10th-order (
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>n</m:ci>
+	    <m:cn>5</m:cn>
+	  </m:apply>
+	</m:math>
+	) lowpass Butterworth filter.
+      </caption>
+    </figure>
+
+
+    <para id="para5">
+      Note that the poles lie along a circle in the s-plane.
+    </para>
+
+    <section id="sect1">
+      <title>Designing a Butterworth Filter</title>
+      <para id="para6">
+	Designing a Butterworth filter is a trivial task.  Since we
+	know that the filter contains only poles, we know that we can
+	write it as
+	<equation id="eqn4">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">H</m:ci>
+		<m:ci>s</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:plus/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>s</m:ci>
+		    <m:ci>n</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci><m:msub>
+			<m:mi>a</m:mi>
+			<m:mrow>
+			  <m:mi>n</m:mi><m:mo>-</m:mo><m:mn>1</m:mn>
+			</m:mrow>
+		      </m:msub></m:ci>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>s</m:ci>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>n</m:ci>
+			<m:cn>1</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:ci> ⋯ </m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci><m:msub><m:mi>a</m:mi><m:mn>1</m:mn></m:msub></m:ci>
+		    <m:ci>s</m:ci>
+		  </m:apply>
+		  <m:cn>1</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	From this, we may look up the 
+	<m:math>
+	  <m:ci><m:msub><m:mi>a</m:mi><m:mi>i</m:mi></m:msub></m:ci>
+	</m:math>
+	from a table (like the one below) for any desired
+	<m:math><m:ci>n</m:ci></m:math>.  We can also find them in
+	Matlab by using the <code>buttap</code> command.  The
+	real challenge of designing a Butterworth filter comes with
+	figuring out the optimal characteristics for the given
+	application.
+      </para>
+
+      <table frame="all" id="table" summary="">
+	<tgroup cols="10" align="center">
+	  <thead valign="top">
+	    <row>
+	      <entry colname="n">n</entry>
+	      <entry colname="a1">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>1</m:mn></m:msub></m:math>
+	      </entry>
+	      <entry colname="a2">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>2</m:mn></m:msub></m:math>
+	      </entry>
+	      <entry colname="a3">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>3</m:mn></m:msub></m:math>
+	      </entry>
+	      <entry colname="a4">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>4</m:mn></m:msub></m:math>
+	      </entry>
+	      <entry colname="a5">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>5</m:mn></m:msub></m:math>
+	      </entry>
+	      <entry colname="a6">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>6</m:mn></m:msub></m:math>
+	      </entry>
+	      <entry colname="a7">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>7</m:mn></m:msub></m:math>
+	      </entry>
+	      <entry colname="a8">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>8</m:mn></m:msub></m:math>
+	      </entry>
+	      <entry colname="a9">
+		<m:math><m:msub><m:mi>a</m:mi><m:mn>9</m:mn></m:msub></m:math>
+	      </entry>
+	    </row>
+	  </thead>
+	  <tbody valign="top">
+	    <row>
+	      <entry colname="n">2</entry>
+	      <entry colname="a1">1.414214</entry>
+	    </row>
+	    <row>
+	      <entry colname="n">3</entry>
+	      <entry colname="a1">2.000000</entry>
+	      <entry colname="a2">2.000000</entry>
+	    </row>
+	    <row>
+	      <entry colname="n">4</entry>
+	      <entry colname="a1">2.613126</entry>
+	      <entry colname="a2">3.414214</entry>
+	      <entry colname="a3">2.613126</entry>
+	    </row>
+	    <row>
+	      <entry colname="n">5</entry>
+	      <entry colname="a1">3.236068</entry>
+	      <entry colname="a2">5.236068</entry>
+	      <entry colname="a3">5.236068</entry>
+	      <entry colname="a4">3.236068</entry>
+	    </row>
+	    <row>
+	      <entry colname="n">6</entry>
+	      <entry colname="a1">3.863703</entry>
+	      <entry colname="a2">7.464102</entry>
+	      <entry colname="a3">9.141620</entry>
+	      <entry colname="a4">7.464102</entry>
+	      <entry colname="a5">3.863703</entry>
+	    </row>
+	    <row>
+	      <entry colname="n">7</entry>
+	      <entry colname="a1">4.493959</entry>
+	      <entry colname="a2">10.097835</entry>
+	      <entry colname="a3">14.591794</entry>
+	      <entry colname="a4">14.591794</entry>
+	      <entry colname="a5">10.097835</entry>
+	      <entry colname="a6">4.493959</entry>
+	    </row>
+	    <row>
+	      <entry colname="n">8</entry>
+	      <entry colname="a1">5.125831</entry>
+	      <entry colname="a2">13.137071</entry>
+	      <entry colname="a3">21.846151</entry>
+	      <entry colname="a4">25.688356</entry>
+	      <entry colname="a5">21.846151</entry>
+	      <entry colname="a6">13.137071</entry>
+	      <entry colname="a7">5.125831</entry>
+	    </row>
+	    <row>
+	      <entry colname="n">9</entry>
+	      <entry colname="a1">5.758770</entry>
+	      <entry colname="a2">16.581719</entry>
+	      <entry colname="a3">31.163437</entry>
+	      <entry colname="a4">41.986386</entry>
+	      <entry colname="a5">41.986386</entry>
+	      <entry colname="a6">31.163437</entry>
+	      <entry colname="a7">16.581719</entry>
+	      <entry colname="a8">5.758770</entry>
+	    </row>
+	    <row>
+	      <entry colname="n">10</entry>
+	      <entry colname="a1">6.392453</entry>
+	      <entry colname="a2">20.431729</entry>
+	      <entry colname="a3">42.802061</entry>
+	      <entry colname="a4">64.882396</entry>
+	      <entry colname="a5">74.233429</entry>
+	      <entry colname="a6">64.882396</entry>
+	      <entry colname="a7">42.802061</entry>
+	      <entry colname="a8">20.431729</entry>
+	      <entry colname="a9">6.392453</entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </table>
+
+      <exercise id="exer1">
+	<problem id="idp10114304">
+	  <para id="exer1a">
+	    Design a Butterworth filter with a passband gain between 1
+	    and 0.891 (-1 dB gain) for
+	    <m:math>
+	      <m:apply>
+		<m:lt/>
+		<m:cn>0</m:cn>
+		<m:ci>ω</m:ci>
+		<m:cn>10</m:cn>
+	      </m:apply>
+	    </m:math>
+	    and a stopband not to exceed 0.0316 (-30 dB gain) for
+	    <m:math>
+	      <m:apply>
+		<m:geq/>
+		<m:ci>ω</m:ci>
+		<m:cn>20</m:cn>
+	      </m:apply>
+	    </m:math>.
+	  </para>
+
+<!--	  <figure id="fig3" orient="vertical">
+	    <media type="image/jpeg" src="butterworth3.jpg"/>
+	  </figure>
+-->
+	</problem>
+
+	<solution id="idp7563872">
+	  <para id="exer1b">
+	    The first step is to determine
+	    <m:math><m:ci>n</m:ci></m:math>.  To do this, we must
+	    solve for <m:math><m:ci>n</m:ci></m:math> using the
+	    passband and stopband criteria.  We begin by finding the
+	    equation for the gain in the passband in dB,
+	    <equation id="eqn5">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci><m:mover>
+		      <m:msub>
+			<m:mi>G</m:mi>
+			<m:mi>p</m:mi>
+		      </m:msub>
+		      <m:mo>^</m:mo>
+		    </m:mover></m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>20</m:cn>
+		    <m:apply>
+		      <m:log/>
+		      <m:apply>
+			<m:abs/>
+			<m:apply>
+			  <m:ci type="fn">H</m:ci>
+			  <m:apply>
+			    <m:times/>
+			    <m:imaginaryi/>
+			    <m:ci>ω</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>-10</m:cn>
+		    <m:apply>
+		      <m:log/>
+		      <m:apply>
+			<m:plus/>
+			<m:cn>1</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:divide/>
+			    <m:ci><m:msub>
+				<m:mi>ω</m:mi><m:mi>p</m:mi>
+			      </m:msub></m:ci>
+			    <m:ci><m:msub>
+				<m:mi>ω</m:mi><m:mi>c</m:mi>
+			      </m:msub></m:ci>
+			  </m:apply>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:ci>n</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    and for the stopband in dB,
+	    <equation id="eqn6">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci><m:mover>
+		      <m:msub>
+			<m:mi>G</m:mi>
+			<m:mi>s</m:mi>
+		      </m:msub>
+		      <m:mo>^</m:mo>
+		    </m:mover></m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>20</m:cn>
+		    <m:apply>
+		      <m:log/>
+		      <m:apply>
+			<m:abs/>
+			<m:apply>
+			  <m:ci type="fn">H</m:ci>
+			  <m:apply>
+			    <m:times/>
+			    <m:imaginaryi/>
+			    <m:ci>ω</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>-10</m:cn>
+		    <m:apply>
+		      <m:log/>
+		      <m:apply>
+			<m:plus/>
+			<m:cn>1</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:divide/>
+			    <m:ci><m:msub>
+				<m:mi>ω</m:mi><m:mi>s</m:mi>
+			      </m:msub></m:ci>
+			    <m:ci><m:msub>
+				<m:mi>ω</m:mi><m:mi>c</m:mi>
+			      </m:msub></m:ci>
+			  </m:apply>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:ci>n</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    these equations can also take the form
+	    <equation id="eqn7">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:power/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:ci>
+			<m:msub><m:mi>ω</m:mi><m:mi>x</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>ω</m:mi><m:mi>c</m:mi></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:power/>
+		      <m:cn>10</m:cn>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci><m:mover>
+			      <m:msub>
+				<m:mi>G</m:mi>
+				<m:mi>x</m:mi>
+			      </m:msub>
+			      <m:mo>^</m:mo>
+			    </m:mover></m:ci>
+			</m:apply>
+			<m:cn>10</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    In this form, we may divide the passband equation by the
+	    stopband equation to get rid of the
+	    <m:math>
+	      <m:ci><m:msub> <m:mi>ω</m:mi> <m:mi>c</m:mi>
+		  </m:msub></m:ci> </m:math>.  From there, we can
+		  solve for <m:math><m:ci>n</m:ci></m:math> to get
+	    <equation id="eqn8">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>n</m:ci>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:log/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:minus/>
+			  <m:apply>
+			    <m:power/>
+			    <m:cn>10</m:cn>
+			    <m:apply>
+			      <m:divide/>
+			      <m:apply>
+				<m:minus/>
+				<m:ci><m:mover>
+				    <m:msub>
+				      <m:mi>G</m:mi>
+				      <m:mi>s</m:mi>
+				    </m:msub>
+				    <m:mo>^</m:mo>
+				  </m:mover></m:ci>
+			      </m:apply>
+			      <m:cn>10</m:cn>
+			    </m:apply>
+			  </m:apply>
+			  <m:cn>1</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:minus/>
+			  <m:apply>
+			    <m:power/>
+			    <m:cn>10</m:cn>
+			    <m:apply>
+			      <m:divide/>
+			      <m:apply>
+				<m:minus/>
+				<m:ci><m:mover>
+				    <m:msub>
+				      <m:mi>G</m:mi>
+				      <m:mi>p</m:mi>
+				    </m:msub>
+				    <m:mo>^</m:mo>
+				  </m:mover></m:ci>
+			      </m:apply>
+			      <m:cn>10</m:cn>
+			    </m:apply>
+			  </m:apply>
+			  <m:cn>1</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:apply>
+			<m:log/>
+			<m:apply>
+			  <m:divide/>
+			  <m:ci>
+			    <m:msub><m:mi>ω</m:mi><m:mi>s</m:mi></m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>ω</m:mi><m:mi>p</m:mi></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    By plugging in, we find
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>5.9569</m:cn>
+	      </m:apply>
+	    </m:math>.  However, since <m:math><m:ci>n</m:ci></m:math>
+	    must be an integer, we round this up to
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>6</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </para>
+	  <para id="exer1c">
+	    The next step is to find
+	    <m:math>
+	      <m:ci><m:msub><m:mi>ω</m:mi><m:mi>c</m:mi></m:msub></m:ci>
+	    </m:math>.
+	    We can do this by substituting
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>6</m:cn>
+	      </m:apply>
+	    </m:math>
+	    into the equations for the passband and stopband and
+	    solving for
+	    <m:math>
+	      <m:ci><m:msub><m:mi>ω</m:mi><m:mi>c</m:mi></m:msub></m:ci>
+	    </m:math>.
+	    This yields
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>
+		  <m:msub><m:mi>ω</m:mi><m:mi>c</m:mi></m:msub>
+		</m:ci>
+		<m:cn>11.1919</m:cn>
+	      </m:apply>
+	    </m:math>
+	    for the passband equation and
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>
+		  <m:msub><m:mi>ω</m:mi><m:mi>c</m:mi></m:msub>
+		</m:ci>
+		<m:cn>11.2478</m:cn>
+	      </m:apply>
+	    </m:math>
+	    for the stopband equation.  The difference in these
+	    solutions is a result of <m:math><m:ci>n</m:ci></m:math>
+	    needing to be an integer.  If we choose the solution from
+	    the passband equation, the passband will meet its
+	    requirements exactly, and the stopband will surpass its
+	    requirements.  If we choose the solution from the stopband
+	    equation instead, the stopband requirements will be met
+	    exactly, while we will exceed the passband requirements.
+	    Therefore, we may choose either value or any value in
+	    between.  For this example, we will choose
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>
+		  <m:msub><m:mi>ω</m:mi><m:mi>c</m:mi></m:msub>
+		</m:ci>
+		<m:cn>11.2478</m:cn>
+	      </m:apply>
+	    </m:math>.
+	  </para>
+	  <para id="exer1d">
+	    Now, we can find the normalized transfer function.  Since
+	    we know this to be a sixth-order Butterworth, we can
+	    determine from the table that
+	    <equation id="eqn9">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">H</m:ci>
+		    <m:ci>s</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:plus/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>s</m:ci>
+			<m:cn>6</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>3.863703</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>s</m:ci>
+			  <m:cn>5</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>7.464102</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>s</m:ci>
+			  <m:cn>4</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>9.141620</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>s</m:ci>
+			  <m:cn>3</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>7.464102</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>s</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>3.863703</m:cn>
+			<m:ci>s</m:ci>
+		      </m:apply>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	  </para>
+	  <para id="exer1e">
+	    Finally, we can determine the final transfer function.
+	    <equation id="eqn10">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">H</m:ci>
+		    <m:ci>s</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:plus/>
+		      <m:apply>
+			<m:power/>
+			<m:apply>
+			  <m:divide/>
+			  <m:ci>s</m:ci>
+			  <m:cn>11.2478</m:cn>
+			</m:apply>
+			<m:cn>6</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>3.863703</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:divide/>
+			    <m:ci>s</m:ci>
+			    <m:cn>11.2478</m:cn>
+			  </m:apply>
+			  <m:cn>5</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>7.464102</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:divide/>
+			    <m:ci>s</m:ci>
+			    <m:cn>11.2478</m:cn>
+			  </m:apply>
+			  <m:cn>4</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>9.141620</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:divide/>
+			    <m:ci>s</m:ci>
+			    <m:cn>11.2478</m:cn>
+			  </m:apply>
+			  <m:cn>3</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>7.464102</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:divide/>
+			    <m:ci>s</m:ci>
+			    <m:cn>11.2478</m:cn>
+			  </m:apply>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>3.863703</m:cn>
+			<m:apply>
+			  <m:divide/>
+			  <m:ci>s</m:ci>
+			  <m:cn>11.2478</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>  
+	      </m:math>
+	    </equation>
+	    Rather than multiplying this out and factoring, we will
+	    leave it in this form for readability, since the numbers
+	    can get quite large otherwise.
+	  </para>
+	</solution>
+      </exercise>
+
+    </section>
+
+  </content>
+</document>
