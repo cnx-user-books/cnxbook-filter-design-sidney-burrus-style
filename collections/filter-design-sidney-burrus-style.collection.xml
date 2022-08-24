@@ -1,12 +1,13 @@
-<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">
+<?xml version="1.0"?>
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en" authors="Richard Baraniuk">
   <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
     <md:content-id>col10701</md:content-id>
     <md:title>Filter Design - Sidney Burrus Style</md:title>
     <md:language>en</md:language>
     <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</md:license>
     <md:uuid>9f098cf5-b66c-46c3-885c-a9cdca864c90</md:uuid>
-<md:slug>filter-design-sidney-burrus-style</md:slug>
-</metadata>
+    <md:slug>filter-design-sidney-burrus-style</md:slug>
+  </metadata>
   <col:content>
     <col:module document="m10127"/>
     <col:module document="m16903"/>
